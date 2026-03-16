@@ -1,13 +1,11 @@
-version: '3.8'
-
 services:
   openfoam:
     build:
       context: .
       dockerfile: Dockerfile
       args:
-        - USER_ID=${UID:-1000}
-        - GROUP_ID=${GID:-1000}
+        - USER_ID=${MY_UID:-1000}
+        - GROUP_ID=${MY_GID:-1000}
     volumes:
       - ./docker_root:/home/openfoam/project
     working_dir: /home/openfoam/project
