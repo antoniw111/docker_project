@@ -12,3 +12,12 @@ services:
     # Use interactive shell
     stdin_open: true
     tty: true
+
+  cantera:
+      image: python:3.14-slim
+      volumes:
+        - ./docker_root:/home/openfoam/project
+      working_dir: /home/openfoam/project
+      command: /bin/bash -c "pip install cantera numpy && bash"
+      stdin_open: true
+      tty: true
