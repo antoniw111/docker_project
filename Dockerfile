@@ -1,6 +1,6 @@
-# Use a verified amd64 OpenFOAM 2.1.1 image
+# Use a loacal rm314159/openfoam211 copy
 FROM openfoam211
-
+#FROM rm31415/openfoqm211
 USER root
 
 # Install build dependencies missing in the base image
