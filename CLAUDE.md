@@ -45,8 +45,9 @@ Goal: validate CFD wave speeds against detonation theory.
 Pure-Cantera implementation (no SDToolbox dependency) is in
 `analysis/detonation_validation.py`.
 
-## Validated results (case `5_725_bara_15H2_35_25_deg`, T0=293 K)
-- Incident wave: W = 564 m/s, a0 = 371 m/s, M = 1.52, P2 = 2.60 bar (== CFD
+## Validated results (case `5_725_bara_15H2_35_25_deg`, T0=293 K, P0=1 bar)
+- Driver section 5.725 bar, driven (test) section P0=1 bar, T=293 K everywhere.
+- Incident wave: W = 564 m/s, a0 = 371 m/s, M = 1.52, P2 = 2.54 bar (== CFD
   plateau ~2.5 bar, validation #1), T2 = 391 K, **u_p = 268 m/s**.
 - Detonation: D_CJ(fill) = 1516 m/s; D_CJ(compressed gas) = 1524 m/s;
   **D_lab = 1256 m/s** == CFD 1194–1319 m/s, mean ~1257 (validation #2).
