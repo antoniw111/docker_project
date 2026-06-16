@@ -1,3 +1,5 @@
 docker_root/
 openfoam211-docker/
 5_725_bara_15H2_35_25_deg/
+# MKWS wydzielone do osobnego repo: https://github.com/antoniw111/MKWS
+MKWS/
