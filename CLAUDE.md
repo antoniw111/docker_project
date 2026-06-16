@@ -45,11 +45,14 @@ Goal: validate CFD wave speeds against detonation theory.
 Pure-Cantera implementation (no SDToolbox dependency) is in
 `analysis/detonation_validation.py`.
 
-## Validated results (case `5_725_bara_15H2_35_25_deg`, T0=300 K assumed)
-- Incident wave: W = 564 m/s, a0 = 375 m/s, M = 1.50, P2 = 2.54 bar (== CFD
-  plateau ~2.5 bar, validation #1), T2 = 397 K, **u_p = 263 m/s**.
-- Detonation: D_CJ(fill) = 1516 m/s; D_CJ(compressed gas) = 1525 m/s;
-  **D_lab = 1261 m/s** == CFD 1194–1319 m/s (validation #2).
+## Validated results (case `5_725_bara_15H2_35_25_deg`, T0=293 K)
+- Incident wave: W = 564 m/s, a0 = 371 m/s, M = 1.52, P2 = 2.60 bar (== CFD
+  plateau ~2.5 bar, validation #1), T2 = 391 K, **u_p = 268 m/s**.
+- Detonation: D_CJ(fill) = 1516 m/s; D_CJ(compressed gas) = 1524 m/s;
+  **D_lab = 1256 m/s** == CFD 1194–1319 m/s, mean ~1257 (validation #2).
+- CJ result is mechanism-independent (gri30 vs h2o2 <0.6%; frozen-shock part
+  identical) — it rests on thermo+equilibrium, not kinetics. No need for the
+  detailed H2 kinetic mech (O'Conaire) used in the CFD.
 
 ## File map
 - `analysis/detonation_validation.py` — TOA + Cantera; configurable at top
@@ -67,7 +70,8 @@ Pure-Cantera implementation (no SDToolbox dependency) is in
 - Engineering numerics: Python + CSV + LaTeX. Keep notation Polish-convention.
 
 ## Open items / TODO
-- Confirm fill temperature T0 (currently assumed 300 K — affects all derived qty).
+- Fill temperature now set to T0=293 K (script + report). Ideally still
+  cross-check against the CFD `0/T` initial field — affects all derived qty.
 - Process remaining runs (other H2 %, inflow speeds) and find the
   detonable/non-detonable boundary (D_CJ, induction length, cell size vs % H2).
 - Optional: cross-check D_CJ against SDToolbox `CJspeed` (using `.yaml`).
